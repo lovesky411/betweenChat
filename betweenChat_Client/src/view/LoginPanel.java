@@ -12,6 +12,8 @@ import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -34,9 +36,9 @@ import javax.swing.JTextField;
 public class LoginPanel extends JPanel {
 	JPanel pnlMain;
 	
-	JButton btnLogin;
+	JButton btnLogin, btnJoin, btnFind;
 	
-	JLabel lblTitle, lblFind, lblJoin, lblId, lblPW;
+	JLabel lblTitle, lblId, lblPW;
 	
 	JTextField tfID = new JTextField(20);
 	JTextField tfPW = new JTextField(20);
@@ -47,6 +49,7 @@ public class LoginPanel extends JPanel {
 	Color bgColor;
 	Image image;
 	
+	ChatUI ui;
 	
 	/**
 	 * 생성자
@@ -83,17 +86,19 @@ public class LoginPanel extends JPanel {
 		
 		lblTitle = new JLabel("소곤소곤");
 		btnLogin = new JButton("Login");
+		btnFind = new JButton("아이디/비밀번호 찾기");
+		btnJoin = new JButton("회원가입");
 		
 		lblId = new JLabel("ID");
 		lblPW = new JLabel("PassWord");
 		
-		lblFind = new JLabel("아이디/비밀번호 찾기");
-		lblJoin = new JLabel("회원가입");
 		bgColor = Color.LIGHT_GRAY;
 		
 		
 		grid = new GridBagLayout();
 		grdBC = new GridBagConstraints();
+		
+		setComponents();
 		
 	}
 	
@@ -118,6 +123,12 @@ public class LoginPanel extends JPanel {
 		      add(com); // 컴포넌트를 Panel에 부착한다.
 		   }
 	   
+	/**
+	 * @Method Name : setComponents
+	 * @Date : 2017. 2. 25.
+	 * @Auther : KSH
+	 * @Desc :
+	 */
 	public void setComponents(){
 		setLayout(grid);
 		grdBC.fill = GridBagConstraints.BOTH;
@@ -137,9 +148,54 @@ public class LoginPanel extends JPanel {
 		
 		addComponent(new JLabel(" "), 0, 15, 1, 2, 0.5, 0);
 		
-		addComponent(lblFind, 1, 15, 1, 1, 0, 0);
-		addComponent(lblJoin, 2, 15, 1, 1, 0, 0);
+		addComponent(btnFind, 1, 15, 1, 1, 0, 0);
+		addComponent(btnJoin, 2, 15, 1, 1, 0, 0);
 		
+		
+	}
+	
+	
+	public void setUI(ChatUI ui){
+		this.ui = ui;
+	}
+	
+	/**
+	 * @Method Name : eventRegist
+	 * @Date : 2017. 2. 27.
+	 * @Auther : KSH
+	 * @Desc :	이벤트 처리 메소드
+	 */
+	public void eventRegist(){
+		
+		/** login Button Click**/
+		btnLogin.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+			
+			}
+		});
+		
+		/** Find Button Click **/
+		btnFind.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
+		/** Join Button Click **/
+		btnJoin.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		
 	}
 		   
